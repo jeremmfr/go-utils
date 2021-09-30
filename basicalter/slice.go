@@ -34,10 +34,8 @@ func DelStringInSlice(str string, list []string) []string {
 }
 
 // SortStringsByLengthInc sort slice of string by length increasing before lexicographic order.
-func SortStringsByLengthInc(s []string) []string {
-	sort.Sort(sortStringsLengthInc(s))
-
-	return s
+func SortStringsByLengthInc(list []string) {
+	sort.Sort(sortStringsLengthInc(list))
 }
 
 type sortStringsLengthInc []string
@@ -62,10 +60,8 @@ func (s sortStringsLengthInc) Less(i, j int) bool {
 }
 
 // SortStringsByLengthDec sort slice of string by length decreasing before lexicographic order.
-func SortStringsByLengthDec(s []string) []string {
-	sort.Sort(sortStringsLengthDec(s))
-
-	return s
+func SortStringsByLengthDec(list []string) {
+	sort.Sort(sortStringsLengthDec(list))
 }
 
 type sortStringsLengthDec []string
