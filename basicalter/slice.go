@@ -3,10 +3,10 @@ package basicalter
 import "sort"
 
 // UniqueStrings remove duplicate string in slice of string.
-func UniqueStrings(s []string) []string {
+func UniqueStrings(list []string) []string {
 	k := make(map[string]bool)
 	r := []string{}
-	for _, v := range s {
+	for _, v := range list {
 		if _, vv := k[v]; !vv {
 			k[v] = true
 			r = append(r, v)
