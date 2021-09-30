@@ -5,7 +5,7 @@
 [![Report Card](https://goreportcard.com/badge/github.com/jeremmfr/go-utils)](https://goreportcard.com/report/github.com/jeremmfr/go-utils)
 [![Go Status](https://github.com/jeremmfr/go-utils/workflows/Go%20Tests/badge.svg)](https://github.com/jeremmfr/go-utils/actions)
 [![Lint Status](https://github.com/jeremmfr/go-utils/workflows/GolangCI-Lint/badge.svg)](https://github.com/jeremmfr/go-utils/actions)
-[![codecov](https://codecov.io/gh/jeremmfr/go-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/jeremmfr/go-utils)
+[![codecov](https://codecov.io/gh/jeremmfr/go-utils/branch/main/graph/badge.svg)](https://codecov.io/gh/jeremmfr/go-utils)
 
 Golang utility functions
 
