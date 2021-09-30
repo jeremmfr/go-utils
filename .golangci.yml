@@ -8,3 +8,6 @@ linters:
     - wsl
     - exhaustivestruct
     - paralleltest
+linters-settings:
+  govet:
+    enable-all: true
