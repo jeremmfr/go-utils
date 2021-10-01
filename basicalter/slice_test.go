@@ -37,6 +37,17 @@ func TestDelStringInSlice(t *testing.T) {
 	}
 }
 
+func TestReverseStrings(t *testing.T) {
+	sliceOfString := []string{"foo", "baz", "bar", "World", "Hello"}
+
+	newSlice := basicalter.ReverseStrings(sliceOfString)
+
+	desiredSlice := []string{"Hello", "World", "bar", "baz", "foo"}
+	if !basiccheck.EqualStringSlice(newSlice, desiredSlice) {
+		t.Errorf("ReverseStrings fail to reverse slice: %v expected %v", newSlice, desiredSlice)
+	}
+}
+
 func TestSortStringsByLengthInc(t *testing.T) {
 	s := []string{"Bravo", "Gopher", "Alpha", "Go", "Grin", "Delta"}
 

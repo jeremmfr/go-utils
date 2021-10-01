@@ -33,6 +33,16 @@ func DelStringInSlice(str string, list []string) []string {
 	return r
 }
 
+// ReverseStrings reverse order of strings in slice last to first, before last to second, etc.
+func ReverseStrings(list []string) []string {
+	r := make([]string, len(list))
+	for i := len(list) - 1; i >= 0; i-- {
+		r[len(list)-1-i] = list[i]
+	}
+
+	return r
+}
+
 // SortStringsByLengthInc sort slice of string by length increasing before lexicographic order.
 func SortStringsByLengthInc(list []string) {
 	sort.Sort(sortStringsLengthInc(list))
