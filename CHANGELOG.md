@@ -1,5 +1,7 @@
 # changelog
 
+* simplify `ReverseStrings` to reverse original slice
+
 ## v0.2.0
 
 * add `ReverseStrings` function
