@@ -1,5 +1,7 @@
 # changelog
 
+* rename `CheckStringHasOneOfPrefixes` to `StringHasOneOfPrefixes`
+
 ## v0.1.1
 
 * fix useless return slice for SortStringsByLength functions

@@ -6,13 +6,13 @@ import (
 	"github.com/jeremmfr/go-utils/basiccheck"
 )
 
-func TestCheckStringHasOneOfPrefixes(t *testing.T) {
+func TestStringHasOneOfPrefixes(t *testing.T) {
 	prefStrings := []string{"foo", "bar"}
 
-	if !basiccheck.CheckStringHasOneOfPrefixes("foobaz", prefStrings) {
-		t.Errorf("CheckStringHasOneOfPrefixes not found prefix foo in footoo")
+	if !basiccheck.StringHasOneOfPrefixes("foobaz", prefStrings) {
+		t.Errorf("StringHasOneOfPrefixes not found prefix foo in footoo")
 	}
-	if basiccheck.CheckStringHasOneOfPrefixes("fozbar", prefStrings) {
-		t.Errorf("CheckStringHasOneOfPrefixes found one of prefixes %v in fozbar", prefStrings)
+	if basiccheck.StringHasOneOfPrefixes("fozbar", prefStrings) {
+		t.Errorf("StringHasOneOfPrefixes found one of prefixes %v in fozbar", prefStrings)
 	}
 }
