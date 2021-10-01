@@ -28,6 +28,7 @@ func TestEqualStringSlice(t *testing.T) {
 	if basiccheck.EqualStringSlice(sliceA, sliceC) {
 		t.Errorf("EqualStringSlice found equal slice %v, %v", sliceA, sliceC)
 	}
+
 	sliceC = append(sliceC, "baz")
 	if !basiccheck.EqualStringSlice(sliceA, sliceC) {
 		t.Errorf("EqualStringSlice not found equal slice %v, %v", sliceA, sliceC)
@@ -36,6 +37,7 @@ func TestEqualStringSlice(t *testing.T) {
 
 func TestIntInSlice(t *testing.T) {
 	sliceOfInt := []int{2, 4, 10}
+
 	if !basiccheck.IntInSlice(4, sliceOfInt) {
 		t.Errorf("IntInSlice can't found 4 in %v", sliceOfInt)
 	}
@@ -46,6 +48,7 @@ func TestIntInSlice(t *testing.T) {
 
 func TestInt64InSlice(t *testing.T) {
 	sliceOfInt := []int64{2, 4, 10}
+
 	if !basiccheck.Int64InSlice(4, sliceOfInt) {
 		t.Errorf("Int64InSlice can't found 4 in %v", sliceOfInt)
 	}

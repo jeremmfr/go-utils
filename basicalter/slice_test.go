@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/jeremmfr/go-utils/basicalter"
+	"github.com/jeremmfr/go-utils/basiccheck"
 )
 
 func TestUniqueStrings(t *testing.T) {
@@ -12,6 +13,7 @@ func TestUniqueStrings(t *testing.T) {
 	if len(basicalter.UniqueStrings(sliceOfString)) != len(sliceOfString) {
 		t.Errorf("UniqueStrings return bad slice with slice without duplicate entry")
 	}
+
 	sliceOfString = append(sliceOfString, "foo")
 
 	if len(basicalter.UniqueStrings(sliceOfString)) == len(sliceOfString) {
@@ -37,18 +39,22 @@ func TestDelStringInSlice(t *testing.T) {
 
 func TestSortStringsByLengthInc(t *testing.T) {
 	s := []string{"Bravo", "Gopher", "Alpha", "Go", "Grin", "Delta"}
+
 	basicalter.SortStringsByLengthInc(s)
 
-	if s[0] != "Go" || s[1] != "Grin" {
-		t.Errorf("SortStringsByLength fail to sort slice with smaller first")
+	desiredSlice := []string{"Go", "Grin", "Alpha", "Bravo", "Delta", "Gopher"}
+	if !basiccheck.EqualStringSlice(s, desiredSlice) {
+		t.Errorf("SortStringsByLength fail to sort slice with smaller first and lexicographic order")
 	}
 }
 
 func TestSortStringsByLengthDec(t *testing.T) {
 	s := []string{"Bravo", "Gopher", "Alpha", "Go", "Grin", "Delta"}
+
 	basicalter.SortStringsByLengthDec(s)
 
-	if s[len(s)-1] != "Go" || s[len(s)-2] != "Grin" {
-		t.Errorf("SortStringsByLength fail to sort slice with smaller last")
+	desiredSlice := []string{"Gopher", "Alpha", "Bravo", "Delta", "Grin", "Go"}
+	if !basiccheck.EqualStringSlice(s, desiredSlice) {
+		t.Errorf("SortStringsByLength fail to sort slice with smaller last and lexicographic order")
 	}
 }
