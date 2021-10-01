@@ -1,5 +1,7 @@
 # changelog
 
+## v0.2.0
+
 * add `ReverseStrings` function
 * rename `CheckStringHasOneOfPrefixes` to `StringHasOneOfPrefixes`
 
