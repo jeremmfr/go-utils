@@ -1,5 +1,7 @@
 # changelog
 
+* optimize `AbsoluteInt` (with Two's complement implementation)
+
 ## v0.3.0
 
 * simplify `ReverseStrings` to reverse original slice

@@ -6,13 +6,13 @@ import (
 	"github.com/jeremmfr/go-utils/basicalter"
 )
 
-func TestAbsolutint(t *testing.T) {
+func TestAbsolutInt(t *testing.T) {
 	i := -2
 
-	if basicalter.AbsoluteInt(i) < 0 {
-		t.Errorf("AbsoluteInt return negative integer")
+	if v := basicalter.AbsoluteInt(i); v < 0 {
+		t.Errorf("AbsoluteInt(%d) return negative integer: %d", i, v)
 	}
-	if basicalter.AbsoluteInt(basicalter.AbsoluteInt(i)) < 0 {
-		t.Errorf("AbsoluteInt return negative integer")
+	if v := basicalter.AbsoluteInt(basicalter.AbsoluteInt(i)); v < 0 {
+		t.Errorf("AbsoluteInt(AbsoluteInt(%d)) return negative integer: %d", i, v)
 	}
 }

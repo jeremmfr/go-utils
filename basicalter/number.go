@@ -1,10 +1,12 @@
 package basicalter
 
+import (
+	"math/bits"
+)
+
 // AbsoluteInt return absolute value of integer.
 func AbsoluteInt(num int) int {
-	if num < 0 {
-		return -num
-	}
+	y := num >> (bits.UintSize - 1)
 
-	return num
+	return (num ^ y) - y
 }
