@@ -1,6 +1,7 @@
 # changelog
 
 * optimize `AbsoluteInt` (with Two's complement implementation)
+* panic if call `AbsoluteInt` with the minimum value of integers (the absolute of the minimum value of integers is impossible to return)
 
 ## v0.3.0
 
