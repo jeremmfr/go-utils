@@ -86,3 +86,17 @@ func TestSortStringsByLengthDec(t *testing.T) {
 		t.Errorf("SortStringsByLength didn't sort slice with smaller last and lexicographic order")
 	}
 }
+
+func TestReplaceStringsWith(t *testing.T) {
+	sliceOfString := []string{"Foo", "Bar", "Baz"}
+
+	basicalter.ReplaceStringsWith(sliceOfString, strings.ToLower)
+
+	if !basiccheck.EqualStringSlice(sliceOfString, []string{"foo", "bar", "baz"}) {
+		t.Errorf("ReplaceStringsWith didn't replace all strings in slice "+
+			"with the lowercase version: %v", sliceOfString)
+	}
+
+	// test empty slice
+	basicalter.ReplaceStringsWith([]string{}, strings.ToLower)
+}
