@@ -46,3 +46,15 @@ func Int64InSlice(num int64, list []int64) bool {
 
 	return false
 }
+
+// OneOfStringsWith check if at least one string in a slice
+// returns true with the function 'find' passed in arguments.
+func OneOfStringsWith(list []string, find func(string) bool) bool {
+	for _, v := range list {
+		if find(v) {
+			return true
+		}
+	}
+
+	return false
+}
