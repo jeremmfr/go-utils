@@ -10,7 +10,7 @@ func TestStringHasOneOfPrefixes(t *testing.T) {
 	prefStrings := []string{"foo", "bar"}
 
 	if !basiccheck.StringHasOneOfPrefixes("foobaz", prefStrings) {
-		t.Errorf("StringHasOneOfPrefixes not found prefix foo in footoo")
+		t.Errorf("StringHasOneOfPrefixes didn't find prefix foo in foobaz")
 	}
 	if basiccheck.StringHasOneOfPrefixes("fozbar", prefStrings) {
 		t.Errorf("StringHasOneOfPrefixes found one of prefixes %v in fozbar", prefStrings)

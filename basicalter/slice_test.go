@@ -11,13 +11,13 @@ func TestUniqueStrings(t *testing.T) {
 	sliceOfString := []string{"foo", "bar"}
 
 	if len(basicalter.UniqueStrings(sliceOfString)) != len(sliceOfString) {
-		t.Errorf("UniqueStrings return bad slice with slice without duplicate entry")
+		t.Errorf("UniqueStrings returned bad slice with slice without duplicate entry")
 	}
 
 	sliceOfString = append(sliceOfString, "foo")
 
-	if len(basicalter.UniqueStrings(sliceOfString)) == len(sliceOfString) {
-		t.Errorf("UniqueStrings return bad slice with slice with duplicate entry")
+	if v := basicalter.UniqueStrings(sliceOfString); len(v) == len(sliceOfString) {
+		t.Errorf("UniqueStrings didn't remove duplicate foo in slice: %v", v)
 	}
 }
 
@@ -25,7 +25,7 @@ func TestDelEmptyStrings(t *testing.T) {
 	sliceOfString := []string{"foo", "", "bar"}
 
 	if v := basicalter.DelEmptyStrings(sliceOfString); len(v) != 2 {
-		t.Errorf("DelEmptyStrings return bad slice %v", v)
+		t.Errorf("DelEmptyStrings didn't remove empty string: %v", v)
 	}
 }
 
@@ -33,7 +33,7 @@ func TestDelStringInSlice(t *testing.T) {
 	sliceOfString := []string{"foo", "baz", "bar", "baz"}
 
 	if v := basicalter.DelStringInSlice("baz", sliceOfString); len(v) != 2 {
-		t.Errorf("DelStringInSlice return bad slice %v", v)
+		t.Errorf("DelStringInSlice didn't remove 'baz': %v", v)
 	}
 }
 
@@ -44,7 +44,7 @@ func TestReverseSlice(t *testing.T) {
 
 	desiredSlice := []string{"Hello", "World", "bar", "baz", "foo"}
 	if !basiccheck.EqualStringSlice(sliceOfString, desiredSlice) {
-		t.Errorf("ReverseStrings fail to reverse slice: %v expected %v", sliceOfString, desiredSlice)
+		t.Errorf("ReverseStrings didn't reverse slice: %v expected %v", sliceOfString, desiredSlice)
 	}
 }
 
@@ -55,7 +55,7 @@ func TestSortStringsByLengthInc(t *testing.T) {
 
 	desiredSlice := []string{"Go", "Grin", "Alpha", "Bravo", "Delta", "Gopher"}
 	if !basiccheck.EqualStringSlice(s, desiredSlice) {
-		t.Errorf("SortStringsByLength fail to sort slice with smaller first and lexicographic order")
+		t.Errorf("SortStringsByLength didn't sort slice with smaller first and lexicographic order")
 	}
 }
 
@@ -66,6 +66,6 @@ func TestSortStringsByLengthDec(t *testing.T) {
 
 	desiredSlice := []string{"Gopher", "Alpha", "Bravo", "Delta", "Grin", "Go"}
 	if !basiccheck.EqualStringSlice(s, desiredSlice) {
-		t.Errorf("SortStringsByLength fail to sort slice with smaller last and lexicographic order")
+		t.Errorf("SortStringsByLength didn't sort slice with smaller last and lexicographic order")
 	}
 }
