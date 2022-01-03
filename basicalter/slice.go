@@ -23,14 +23,9 @@ func DelEmptyStrings(list []string) []string {
 
 // DelStringInSlice remove all occurrence of a string in slice of string.
 func DelStringInSlice(str string, list []string) []string {
-	r := make([]string, 0)
-	for _, v := range list {
-		if v != str {
-			r = append(r, v)
-		}
-	}
-
-	return r
+	return FilterStringsWith(list, func(s string) bool {
+		return s != str
+	})
 }
 
 // FilterStringsWith generate a new slice of string
