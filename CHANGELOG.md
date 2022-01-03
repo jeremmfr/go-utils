@@ -1,5 +1,7 @@
 # changelog
 
+* add functions `FilterStringsWith` and `ReplaceStringsWith` in package `basicalter`
+
 ## v0.3.1
 
 * optimize `AbsoluteInt` (with Two's complement implementation)
