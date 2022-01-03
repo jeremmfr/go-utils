@@ -1,5 +1,7 @@
 # changelog
 
+* add functions `OneOfStringsWith` and `AllStringsWith` in package `basiccheck`
+
 ## v0.3.1
 
 * optimize `AbsoluteInt` (with Two's complement implementation)
