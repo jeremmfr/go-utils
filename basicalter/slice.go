@@ -33,6 +33,19 @@ func DelStringInSlice(str string, list []string) []string {
 	return r
 }
 
+// FilterStringsWith generate a new slice of string
+// by applying on 'list' a function 'filter' to determine the inclusion of each element.
+func FilterStringsWith(list []string, filter func(string) bool) []string {
+	r := make([]string, 0)
+	for _, v := range list {
+		if filter(v) {
+			r = append(r, v)
+		}
+	}
+
+	return r
+}
+
 // ReverseStrings reverse order of string slice last to first, before last to second, etc.
 func ReverseStrings(list []string) {
 	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {

@@ -1,6 +1,7 @@
 package basicalter_test
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/jeremmfr/go-utils/basicalter"
@@ -38,6 +39,18 @@ func TestDelStringInSlice(t *testing.T) {
 		t.Errorf("DelStringInSlice didn't remove 'baz': %v", v)
 	} else if !basiccheck.EqualStringSlice(v, []string{"foo", "bar"}) {
 		t.Errorf("DelStringInSlice didn't remove 'baz': %v", v)
+	}
+}
+
+func TestFilterStringsWith(t *testing.T) {
+	sliceOfString := []string{"foo", "baz", "bar", "baz"}
+
+	if v := basicalter.FilterStringsWith(sliceOfString, func(s string) bool {
+		return strings.HasPrefix(s, "ba")
+	}); len(v) != 3 {
+		t.Errorf("FilterStringsWith didn't remove foo (without prefix 'ba'): %v", v)
+	} else if !basiccheck.EqualStringSlice(v, []string{"baz", "bar", "baz"}) {
+		t.Errorf("FilterStringsWith didn't remove foo (without prefix 'ba'): %v", v)
 	}
 }
 
