@@ -54,3 +54,15 @@ func OneOfStringsWith(list []string, find func(string) bool) bool {
 
 	return false
 }
+
+// AllStringsWith check if all strings in a slice
+// return true with the function 'valid' passed in arguments.
+func AllStringsWith(list []string, valid func(string) bool) bool {
+	for _, v := range list {
+		if !valid(v) {
+			return false
+		}
+	}
+
+	return true
+}
