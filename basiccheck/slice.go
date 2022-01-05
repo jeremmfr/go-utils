@@ -1,14 +1,10 @@
 package basiccheck
 
-// StringInSlice check if string is present in slice of string.
+// StringInSlice check if a string is present in a slice of string.
 func StringInSlice(str string, list []string) bool {
-	for _, v := range list {
-		if v == str {
-			return true
-		}
-	}
-
-	return false
+	return OneOfStringsWith(list, func(s string) bool {
+		return s == str
+	})
 }
 
 // EqualStringSlice check if two slice of string is Equal: same length, same element in same order.
@@ -45,4 +41,28 @@ func Int64InSlice(num int64, list []int64) bool {
 	}
 
 	return false
+}
+
+// OneOfStringsWith check if at least one string in a slice
+// returns true with the function 'find' passed in arguments.
+func OneOfStringsWith(list []string, find func(string) bool) bool {
+	for _, v := range list {
+		if find(v) {
+			return true
+		}
+	}
+
+	return false
+}
+
+// AllStringsWith check if all strings in a slice
+// return true with the function 'valid' passed in arguments.
+func AllStringsWith(list []string, valid func(string) bool) bool {
+	for _, v := range list {
+		if !valid(v) {
+			return false
+		}
+	}
+
+	return true
 }
