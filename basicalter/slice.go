@@ -23,9 +23,17 @@ func DelEmptyStrings(list []string) []string {
 
 // DelStringInSlice remove all occurrence of a string in slice of string.
 func DelStringInSlice(str string, list []string) []string {
+	return FilterStringsWith(list, func(s string) bool {
+		return s != str
+	})
+}
+
+// FilterStringsWith generate a new slice of string
+// by applying on 'list' a function 'filter' to determine the inclusion of each element.
+func FilterStringsWith(list []string, filter func(string) bool) []string {
 	r := make([]string, 0)
 	for _, v := range list {
-		if v != str {
+		if filter(v) {
 			r = append(r, v)
 		}
 	}
@@ -90,4 +98,12 @@ func (s sortStringsLengthDec) Less(i, j int) bool {
 	}
 
 	return s[i] < s[j]
+}
+
+// ReplaceStringsWith replace each string of a slice
+// with the result of the function 'replace' passed in arguments.
+func ReplaceStringsWith(list []string, replace func(string) string) {
+	for i := 0; i < len(list); i++ {
+		list[i] = replace(list[i])
+	}
 }
