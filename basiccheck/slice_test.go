@@ -1,6 +1,7 @@
 package basiccheck_test
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/jeremmfr/go-utils/basiccheck"
@@ -54,5 +55,62 @@ func TestInt64InSlice(t *testing.T) {
 	}
 	if basiccheck.Int64InSlice(6, sliceOfInt) {
 		t.Errorf("Int64InSlice found 6 in %v", sliceOfInt)
+	}
+}
+
+func TestOneOfStringsWith(t *testing.T) {
+	sliceOfString := []string{}
+
+	if basiccheck.OneOfStringsWith(sliceOfString, func(s string) bool {
+		return strings.HasPrefix(s, "b")
+	}) {
+		t.Errorf("OneOfStringsWith found prefix 'b' in empty slice")
+	}
+
+	sliceOfString = append(sliceOfString, []string{"foo", "baz", "bar"}...)
+	if !basiccheck.OneOfStringsWith(sliceOfString, func(s string) bool {
+		return strings.HasPrefix(s, "b")
+	}) {
+		t.Errorf("OneOfStringsWith didn't find prefix 'b' in one of %v", sliceOfString)
+	}
+
+	// find a string without all lowercase letters
+	if basiccheck.OneOfStringsWith(sliceOfString, func(s string) bool {
+		return strings.ToLower(s) != s
+	}) {
+		t.Errorf("OneOfStringsWith found a capital letter in one of %v", sliceOfString)
+	}
+}
+
+func TestAllStringsWith(t *testing.T) {
+	sliceOfString := []string{}
+
+	if !basiccheck.AllStringsWith(sliceOfString, func(s string) bool {
+		return strings.HasPrefix(s, "b")
+	}) {
+		t.Errorf("AllStringsWith found prefix 'b' in empty slice")
+	}
+
+	sliceOfString = append(sliceOfString, []string{"baz", "bar"}...)
+	// check if all elements contains 'a'
+	if !basiccheck.AllStringsWith(sliceOfString, func(s string) bool {
+		return strings.Contains(s, "a")
+	}) {
+		t.Errorf("AllStringsWith found one of %v without 'a'", sliceOfString)
+	}
+
+	sliceOfString = append(sliceOfString, "foo")
+	// check if all elements contains 'a'
+	if basiccheck.AllStringsWith(sliceOfString, func(s string) bool {
+		return strings.Contains(s, "a")
+	}) {
+		t.Errorf("AllStringsWith didn't find 'foo' (without 'a') in %v", sliceOfString)
+	}
+
+	// check if all elements have lowercase letters
+	if !basiccheck.AllStringsWith(sliceOfString, func(s string) bool {
+		return strings.ToLower(s) == s
+	}) {
+		t.Errorf("AllStringsWith found a capital letter in one of %v", sliceOfString)
 	}
 }

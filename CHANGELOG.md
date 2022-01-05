@@ -1,5 +1,6 @@
 # changelog
 
+* add functions `OneOfStringsWith` and `AllStringsWith` in package `basiccheck`
 * add functions `FilterStringsWith` and `ReplaceStringsWith` in package `basicalter`
 
 ## v0.3.1
