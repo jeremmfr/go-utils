@@ -4,11 +4,11 @@ import "sort"
 
 // UniqueStrings remove duplicate string in slice of string.
 func UniqueStrings(list []string) []string {
-	k := make(map[string]bool)
+	k := make(map[string]struct{}, len(list))
 	r := []string{}
 	for _, v := range list {
-		if _, vv := k[v]; !vv {
-			k[v] = true
+		if _, ok := k[v]; !ok {
+			k[v] = struct{}{}
 			r = append(r, v)
 		}
 	}

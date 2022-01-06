@@ -1,5 +1,7 @@
 # changelog
 
+* optimize `UniqueStrings` (reduce memory usage)
+
 ## v0.4.0
 
 * add functions `OneOfStringsWith` and `AllStringsWith` in package `basiccheck`
