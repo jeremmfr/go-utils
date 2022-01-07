@@ -20,6 +20,8 @@ func TestUniqueStrings(t *testing.T) {
 	if v := basicalter.UniqueStrings(sliceOfString); len(v) == len(sliceOfString) {
 		t.Errorf("UniqueStrings didn't remove duplicate foo in slice: %v", v)
 	}
+	// test empty list
+	_ = len(basicalter.UniqueStrings([]string{}))
 }
 
 func TestDelEmptyStrings(t *testing.T) {
