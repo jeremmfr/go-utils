@@ -1,5 +1,7 @@
 # changelog
 
+## v0.4.1
+
 * optimize `UniqueStrings` (reduce memory usage)
 
 ## v0.4.0
