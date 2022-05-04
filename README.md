@@ -1,6 +1,6 @@
 # go-utils
 
-[![GoDoc](https://godoc.org/github.com/jeremmfr/go-utils?status.svg)](https://godoc.org/github.com/jeremmfr/go-utils)
+[![Go Reference](https://pkg.go.dev/badge/github.com/jeremmfr/go-utils.svg)](https://pkg.go.dev/github.com/jeremmfr/go-utils)
 [![Release](https://img.shields.io/github/v/release/jeremmfr/go-utils)](https://github.com/jeremmfr/go-utils)
 [![Report Card](https://goreportcard.com/badge/github.com/jeremmfr/go-utils)](https://goreportcard.com/report/github.com/jeremmfr/go-utils)
 [![Go Status](https://github.com/jeremmfr/go-utils/workflows/Go%20Tests/badge.svg)](https://github.com/jeremmfr/go-utils/actions)
