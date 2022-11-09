@@ -7,6 +7,20 @@ func InSlice[T comparable](elm T, list []T) bool {
 	})
 }
 
+// EqualSlice check if two slice is Equal: same length, same element in same order.
+func EqualSlice[T comparable](a, b []T) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i, v := range a {
+		if v != b[i] {
+			return false
+		}
+	}
+
+	return true
+}
+
 // OneOfSliceWith check if at least one element in a slice
 // returns true with the function 'find' passed in arguments.
 func OneOfSliceWith[T any](list []T, find func(T) bool) bool {
@@ -28,7 +42,10 @@ func StringInSlice(str string, list []string) bool {
 	})
 }
 
-// EqualStringSlice check if two slice of string is Equal: same length, same element in same order.
+// EqualStringSlice check if two slice of string is Equal:
+// same length, same element in same order.
+//
+// Deprecated: use EqualSlice() instead.
 func EqualStringSlice(a, b []string) bool {
 	if len(a) != len(b) {
 		return false

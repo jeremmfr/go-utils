@@ -25,6 +25,24 @@ func TestInSlice(t *testing.T) {
 	}
 }
 
+func TestEqualSlice(t *testing.T) {
+	sliceA := []string{"foo", "bar", "baz"}
+	sliceB := []string{"foo", "baz", "bar"}
+	sliceC := []string{"foo", "bar"}
+
+	if basiccheck.EqualSlice(sliceA, sliceB) {
+		t.Errorf("EqualSlice found equal slice %v, %v", sliceA, sliceB)
+	}
+	if basiccheck.EqualSlice(sliceA, sliceC) {
+		t.Errorf("EqualSlice found equal slice %v, %v", sliceA, sliceC)
+	}
+
+	sliceC = append(sliceC, "baz")
+	if !basiccheck.EqualSlice(sliceA, sliceC) {
+		t.Errorf("EqualSlice didn't find equal slice %v, %v", sliceA, sliceC)
+	}
+}
+
 func TestOneOfSliceWith(t *testing.T) {
 	sliceOfString := []string{}
 
