@@ -5,6 +5,11 @@ jobs:
     name: Run
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+        id: go
       - name: Check out code
         uses: actions/checkout@v3
       - name: golangci-lint
