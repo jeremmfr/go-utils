@@ -33,6 +33,18 @@ func OneOfSliceWith[T any](list []T, find func(T) bool) bool {
 	return false
 }
 
+// AllInSliceWith check if all elements in a slice
+// return true with the function 'valid' passed in arguments.
+func AllInSliceWith[T any](list []T, valid func(T) bool) bool {
+	for _, v := range list {
+		if !valid(v) {
+			return false
+		}
+	}
+
+	return true
+}
+
 // StringInSlice check if a string is present in a slice of string.
 //
 // Deprecated: use InSlice() instead.
@@ -101,6 +113,8 @@ func OneOfStringsWith(list []string, find func(string) bool) bool {
 
 // AllStringsWith check if all strings in a slice
 // return true with the function 'valid' passed in arguments.
+//
+// Deprecated: use AllInSliceWith() instead.
 func AllStringsWith(list []string, valid func(string) bool) bool {
 	for _, v := range list {
 		if !valid(v) {

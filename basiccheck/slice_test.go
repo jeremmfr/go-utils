@@ -67,6 +67,39 @@ func TestOneOfSliceWith(t *testing.T) {
 	}
 }
 
+func TestAllInSliceWith(t *testing.T) {
+	sliceOfString := []string{}
+
+	if !basiccheck.AllInSliceWith(sliceOfString, func(s string) bool {
+		return strings.HasPrefix(s, "b")
+	}) {
+		t.Errorf("AllInSliceWith found prefix 'b' in empty slice")
+	}
+
+	sliceOfString = append(sliceOfString, []string{"baz", "bar"}...)
+	// check if all elements contains 'a'
+	if !basiccheck.AllInSliceWith(sliceOfString, func(s string) bool {
+		return strings.Contains(s, "a")
+	}) {
+		t.Errorf("AllInSliceWith found one of %v without 'a'", sliceOfString)
+	}
+
+	sliceOfString = append(sliceOfString, "foo")
+	// check if all elements contains 'a'
+	if basiccheck.AllInSliceWith(sliceOfString, func(s string) bool {
+		return strings.Contains(s, "a")
+	}) {
+		t.Errorf("AllInSliceWith didn't find 'foo' (without 'a') in %v", sliceOfString)
+	}
+
+	// check if all elements have lowercase letters
+	if !basiccheck.AllInSliceWith(sliceOfString, func(s string) bool {
+		return strings.ToLower(s) == s
+	}) {
+		t.Errorf("AllInSliceWith found a capital letter in one of %v", sliceOfString)
+	}
+}
+
 func TestStringInSlice(t *testing.T) {
 	sliceOfString := []string{"foo", "bar"}
 
