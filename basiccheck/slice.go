@@ -1,5 +1,17 @@
 package basiccheck
 
+// OneOfSliceWith check if at least one element in a slice
+// returns true with the function 'find' passed in arguments.
+func OneOfSliceWith[T any](list []T, find func(T) bool) bool {
+	for _, v := range list {
+		if find(v) {
+			return true
+		}
+	}
+
+	return false
+}
+
 // StringInSlice check if a string is present in a slice of string.
 func StringInSlice(str string, list []string) bool {
 	return OneOfStringsWith(list, func(s string) bool {
@@ -45,6 +57,8 @@ func Int64InSlice(num int64, list []int64) bool {
 
 // OneOfStringsWith check if at least one string in a slice
 // returns true with the function 'find' passed in arguments.
+//
+// Deprecated: use OneOfSliceWith() instead.
 func OneOfStringsWith(list []string, find func(string) bool) bool {
 	for _, v := range list {
 		if find(v) {

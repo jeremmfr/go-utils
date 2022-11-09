@@ -1,5 +1,8 @@
 # changelog
 
+* golang 1.18 is now the minimum version
+* add function `OneOfSliceWith` with generic parameters in package `basiccheck` to replace `OneOfStringsWith` function which is now deprecated
+
 ## v0.4.1
 
 * optimize `UniqueStrings` (reduce memory usage)
