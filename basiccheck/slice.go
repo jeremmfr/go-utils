@@ -2,7 +2,7 @@ package basiccheck
 
 // InSlice check if element is present in a slice.
 func InSlice[T comparable](elm T, list []T) bool {
-	return OneOfSliceWith(list, func(v T) bool {
+	return OneInSliceWith(list, func(v T) bool {
 		return v == elm
 	})
 }
@@ -21,9 +21,9 @@ func EqualSlice[T comparable](a, b []T) bool {
 	return true
 }
 
-// OneOfSliceWith check if at least one element in a slice
+// OneInSliceWith check if at least one element in a slice
 // returns true with the function 'find' passed in arguments.
-func OneOfSliceWith[T any](list []T, find func(T) bool) bool {
+func OneInSliceWith[T any](list []T, find func(T) bool) bool {
 	for _, v := range list {
 		if find(v) {
 			return true
@@ -100,7 +100,7 @@ func Int64InSlice(num int64, list []int64) bool {
 // OneOfStringsWith check if at least one string in a slice
 // returns true with the function 'find' passed in arguments.
 //
-// Deprecated: use OneOfSliceWith() instead.
+// Deprecated: use OneInSliceWith() instead.
 func OneOfStringsWith(list []string, find func(string) bool) bool {
 	for _, v := range list {
 		if find(v) {
