@@ -7,6 +7,24 @@ import (
 	"github.com/jeremmfr/go-utils/basiccheck"
 )
 
+func TestInSlice(t *testing.T) {
+	sliceOfString := []string{"foo", "bar"}
+	if !basiccheck.InSlice("bar", sliceOfString) {
+		t.Errorf("InSlice didn't find bar in %v", sliceOfString)
+	}
+	if basiccheck.InSlice("baz", sliceOfString) {
+		t.Errorf("InSlice found baz in %v", sliceOfString)
+	}
+
+	sliceOfInt := []int{2, 4, 10}
+	if !basiccheck.InSlice(4, sliceOfInt) {
+		t.Errorf("InSlice didn't find 4 in %v", sliceOfInt)
+	}
+	if basiccheck.InSlice(6, sliceOfInt) {
+		t.Errorf("InSlice found 6 in %v", sliceOfInt)
+	}
+}
+
 func TestOneOfSliceWith(t *testing.T) {
 	sliceOfString := []string{}
 
@@ -35,10 +53,10 @@ func TestStringInSlice(t *testing.T) {
 	sliceOfString := []string{"foo", "bar"}
 
 	if !basiccheck.StringInSlice("bar", sliceOfString) {
-		t.Errorf("CheckIfStringInSlice didn't find bar in %v", sliceOfString)
+		t.Errorf("StringInSlice didn't find bar in %v", sliceOfString)
 	}
 	if basiccheck.StringInSlice("baz", sliceOfString) {
-		t.Errorf("CheckIfStringInSlice found baz in %v", sliceOfString)
+		t.Errorf("StringInSlice found baz in %v", sliceOfString)
 	}
 }
 
