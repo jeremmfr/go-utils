@@ -1,13 +1,19 @@
 # changelog
 
+* golang 1.18 is now the minimum version
+* add `OneInSliceWith` function with generic parameters in `basiccheck` package to replace `OneOfStringsWith` function which is now deprecated
+* add `InSlice` function with generic parameters in `basiccheck` package to replace `StringInSlice`, `IntInSlice`, `Int64InSlice` functions which are now deprecated
+* add `EqualSlice` function with generic parameters in `basiccheck` package to replace `EqualStringSlice` function which is now deprecated
+* add `AllInSliceWith` function with generic parameters in `basiccheck` package to replace `AllStringsWith` function which is now deprecated
+
 ## v0.4.1
 
 * optimize `UniqueStrings` (reduce memory usage)
 
 ## v0.4.0
 
-* add functions `OneOfStringsWith` and `AllStringsWith` in package `basiccheck`
-* add functions `FilterStringsWith` and `ReplaceStringsWith` in package `basicalter`
+* add `OneOfStringsWith` and `AllStringsWith` functions in `basiccheck` package
+* add `FilterStringsWith` and `ReplaceStringsWith` functions in `basicalter` package
 
 ## v0.3.1
 

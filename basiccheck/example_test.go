@@ -9,7 +9,7 @@ import (
 func Example() {
 	sliceOfString := []string{"foo", "bar"}
 
-	if basiccheck.StringInSlice("bar", sliceOfString) {
+	if basiccheck.InSlice("bar", sliceOfString) {
 		fmt.Printf("bar found in %v", sliceOfString)
 		// Output: bar found in [foo bar]
 	} else {
