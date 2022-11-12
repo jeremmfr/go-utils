@@ -1,9 +1,9 @@
 package basiccheck
 
-// InSlice check if element is present in a slice.
-func InSlice[T comparable](elm T, list []T) bool {
+// InSlice check if an element is present in a slice.
+func InSlice[T comparable](elem T, list []T) bool {
 	return OneInSliceWith(list, func(v T) bool {
-		return v == elm
+		return v == elem
 	})
 }
 
