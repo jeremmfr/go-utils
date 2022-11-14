@@ -14,6 +14,13 @@ func Example() {
 	// Output: [foo bar]
 }
 
+func ExampleAbsoluteInt() {
+	input := -10
+	output := basicalter.AbsoluteInt(input)
+	fmt.Printf("%d", output)
+	// Output: 10
+}
+
 func ExampleUniqueInSlice() {
 	input := []string{"foo", "bar", "foo"}
 	output := basicalter.UniqueInSlice(input)
@@ -42,6 +49,20 @@ func ExampleReverseSlice() {
 	basicalter.ReverseSlice(input)
 	fmt.Printf("%v", input)
 	// Output: [bar baz foo]
+}
+
+func ExampleSortStringsByLengthInc() {
+	input := []string{"a1", "a10", "a11", "a100", "a2", "a3"}
+	basicalter.SortStringsByLengthInc(input)
+	fmt.Printf("%v", input)
+	// Output: [a1 a2 a3 a10 a11 a100]
+}
+
+func ExampleSortStringsByLengthDec() {
+	input := []string{"a1", "a10", "a11", "a100", "a2", "a3"}
+	basicalter.SortStringsByLengthDec(input)
+	fmt.Printf("%v", input)
+	// Output: [a100 a10 a11 a1 a2 a3]
 }
 
 func ExampleReplaceInSliceWith() {
