@@ -80,6 +80,25 @@ func TestDelStringInSlice(t *testing.T) {
 	}
 }
 
+func TestFilterInSliceWith(t *testing.T) {
+	sliceOfString := []string{"foo", "baz", "bar", "baz"}
+
+	if v := basicalter.FilterInSliceWith(sliceOfString, func(s string) bool {
+		return strings.HasPrefix(s, "ba")
+	}); len(v) != 3 {
+		t.Errorf("FilterInSliceWith didn't remove foo (without prefix 'ba'): %v", v)
+	} else if !basiccheck.EqualSlice(v, []string{"baz", "bar", "baz"}) {
+		t.Errorf("FilterInSliceWith didn't remove foo (without prefix 'ba'): %v", v)
+	}
+
+	var nilSlice []string
+	if v := basicalter.FilterInSliceWith(nilSlice, func(s string) bool {
+		return true
+	}); v != nil {
+		t.Errorf("FilterInSliceWith didn't return nil slice with nil input slice")
+	}
+}
+
 func TestFilterStringsWith(t *testing.T) {
 	sliceOfString := []string{"foo", "baz", "bar", "baz"}
 

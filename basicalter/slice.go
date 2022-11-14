@@ -58,8 +58,27 @@ func DelStringInSlice(str string, list []string) []string {
 	})
 }
 
+// FilterInSliceWith generate a new slice
+// by applying on an input slice 'list' a function 'filter'
+// to determine the inclusion of each element.
+func FilterInSliceWith[T any, S ~[]T](list S, filter func(T) bool) S {
+	if list == nil {
+		return nil
+	}
+	r := make(S, 0, cap(list))
+	for _, v := range list {
+		if filter(v) {
+			r = append(r, v)
+		}
+	}
+
+	return r
+}
+
 // FilterStringsWith generate a new slice of string
 // by applying on 'list' a function 'filter' to determine the inclusion of each element.
+//
+// Deprecated: use FilterInSliceWith() instead.
 func FilterStringsWith(list []string, filter func(string) bool) []string {
 	r := make([]string, 0)
 	for _, v := range list {
