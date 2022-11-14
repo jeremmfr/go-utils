@@ -1,6 +1,7 @@
 # changelog
 
 * add `UniqueInSlice` function with generic parameters in `basicalter` package to replace `UniqueStrings` function which is now deprecated
+* add `DelInSlice` function with generic parameters in `basicalter` package to replace `DelStringInSlice` function which is now deprecated
 * add `FilterInSliceWith` function with generic parameters in `basicalter` package to replace `FilterStringsWith` function which is now deprecated
 
 ## v0.5.0

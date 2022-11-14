@@ -70,6 +70,16 @@ func TestDelEmptyStrings(t *testing.T) {
 	}
 }
 
+func TestDelInSlice(t *testing.T) {
+	sliceOfString := []string{"foo", "baz", "bar", "baz"}
+
+	if v := basicalter.DelInSlice("baz", sliceOfString); len(v) != 2 {
+		t.Errorf("DelInSlice didn't remove 'baz': %v", v)
+	} else if !basiccheck.EqualSlice(v, []string{"foo", "bar"}) {
+		t.Errorf("DelInSlice didn't remove 'baz': %v", v)
+	}
+}
+
 func TestDelStringInSlice(t *testing.T) {
 	sliceOfString := []string{"foo", "baz", "bar", "baz"}
 

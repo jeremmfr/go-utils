@@ -46,12 +46,23 @@ func UniqueStrings(list []string) []string {
 	return r
 }
 
-// DelEmptyStrings remove empty elements in slice of string.
+// DelEmptyStrings remove empty elements in slice of string
+// and return the result with a new slice.
 func DelEmptyStrings(list []string) []string {
-	return DelStringInSlice("", list)
+	return DelInSlice("", list)
+}
+
+// DelInSlice remove all occurrence of an element in a slice
+// and return the result with a new slice.
+func DelInSlice[T comparable, S ~[]T](elem T, list S) S {
+	return FilterInSliceWith(list, func(e T) bool {
+		return e != elem
+	})
 }
 
 // DelStringInSlice remove all occurrence of a string in slice of string.
+//
+// Deprecated: use DelInSlice() instead.
 func DelStringInSlice(str string, list []string) []string {
 	return FilterStringsWith(list, func(s string) bool {
 		return s != str

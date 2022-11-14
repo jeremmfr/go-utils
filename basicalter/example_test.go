@@ -21,6 +21,13 @@ func ExampleUniqueInSlice() {
 	// Output: [foo bar]
 }
 
+func ExampleDelInSlice() {
+	input := []string{"foo", "baz", "bar"}
+	output := basicalter.DelInSlice("baz", input)
+	fmt.Printf("%v", output)
+	// Output: [foo bar]
+}
+
 func ExampleFilterInSliceWith() {
 	input := []string{"foo", "baz", "bar", "baz"}
 	output := basicalter.FilterInSliceWith(input, func(s string) bool {
