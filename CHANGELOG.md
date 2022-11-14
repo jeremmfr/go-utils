@@ -1,5 +1,7 @@
 # changelog
 
+* add `UniqueInSlice` function with generic parameters in `basicalter` package to replace `UniqueStrings` function which is now deprecated
+
 ## v0.5.0
 
 * golang 1.18 is now the minimum version

@@ -2,7 +2,37 @@ package basicalter
 
 import "sort"
 
+// UniqueInSlice remove duplicate elements in slice
+// and return the result with a new slice.
+func UniqueInSlice[T comparable, S ~[]T](list S) S {
+	switch {
+	case list == nil:
+		return nil
+	case len(list) == 0:
+		return make(S, 0, cap(list))
+	case len(list) == 1:
+		r := make(S, 1, cap(list))
+		r[0] = list[0]
+
+		return r
+	default:
+		k := make(map[T]struct{}, len(list))
+		r := make(S, 0, cap(list))
+
+		for _, v := range list {
+			if _, ok := k[v]; !ok {
+				k[v] = struct{}{}
+				r = append(r, v)
+			}
+		}
+
+		return r
+	}
+}
+
 // UniqueStrings remove duplicate string in slice of string.
+//
+// Deprecated: use UniqueInSlice() instead.
 func UniqueStrings(list []string) []string {
 	k := make(map[string]struct{}, len(list))
 	r := []string{}

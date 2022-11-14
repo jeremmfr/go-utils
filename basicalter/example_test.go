@@ -7,8 +7,15 @@ import (
 )
 
 func Example() {
-	sliceOfString := []string{"foo", "bar", "foo"}
+	input := []string{"foo", "bar", "foo"}
+	output := basicalter.UniqueInSlice(input)
+	fmt.Printf("%v", output)
+	// Output: [foo bar]
+}
 
-	fmt.Printf("%v", basicalter.UniqueStrings(sliceOfString))
+func ExampleUniqueInSlice() {
+	input := []string{"foo", "bar", "foo"}
+	output := basicalter.UniqueInSlice(input)
+	fmt.Printf("%v", output)
 	// Output: [foo bar]
 }
