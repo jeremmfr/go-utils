@@ -174,6 +174,20 @@ func TestSortStringsByLengthDec(t *testing.T) {
 	}
 }
 
+func TestReplaceInSliceWith(t *testing.T) {
+	sliceOfString := []string{"Foo", "Bar", "Baz"}
+
+	basicalter.ReplaceInSliceWith(sliceOfString, strings.ToLower)
+
+	if !basiccheck.EqualSlice(sliceOfString, []string{"foo", "bar", "baz"}) {
+		t.Errorf("ReplaceInSliceWith didn't replace all strings in slice "+
+			"with the lowercase version: %v", sliceOfString)
+	}
+
+	// test empty slice
+	basicalter.ReplaceInSliceWith([]string{}, strings.ToLower)
+}
+
 func TestReplaceStringsWith(t *testing.T) {
 	sliceOfString := []string{"Foo", "Bar", "Baz"}
 

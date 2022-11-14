@@ -169,8 +169,18 @@ func (s sortStringsLengthDec) Less(i, j int) bool {
 	return s[i] < s[j]
 }
 
+// ReplaceInSliceWith replace each element of a slice
+// with the result of the function 'replace' passed in arguments.
+func ReplaceInSliceWith[T any](list []T, replace func(T) T) {
+	for i := 0; i < len(list); i++ {
+		list[i] = replace(list[i])
+	}
+}
+
 // ReplaceStringsWith replace each string of a slice
 // with the result of the function 'replace' passed in arguments.
+//
+// Deprecated: use ReplaceInSliceWith() instead.
 func ReplaceStringsWith(list []string, replace func(string) string) {
 	for i := 0; i < len(list); i++ {
 		list[i] = replace(list[i])

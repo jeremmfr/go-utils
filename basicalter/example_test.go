@@ -43,3 +43,10 @@ func ExampleReverseSlice() {
 	fmt.Printf("%v", input)
 	// Output: [bar baz foo]
 }
+
+func ExampleReplaceInSliceWith() {
+	input := []string{"Foo", "Bar", "Baz"}
+	basicalter.ReplaceInSliceWith(input, strings.ToLower)
+	fmt.Printf("%v", input)
+	// Output: [foo bar baz]
+}
