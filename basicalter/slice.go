@@ -101,7 +101,16 @@ func FilterStringsWith(list []string, filter func(string) bool) []string {
 	return r
 }
 
+// ReverseSlice reverse order of a slice last to first, before last to second, etc.
+func ReverseSlice[T any](list []T) {
+	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
+		list[i], list[j] = list[j], list[i]
+	}
+}
+
 // ReverseStrings reverse order of string slice last to first, before last to second, etc.
+//
+// Deprecated: use ReverseSlice() instead.
 func ReverseStrings(list []string) {
 	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
 		list[i], list[j] = list[j], list[i]

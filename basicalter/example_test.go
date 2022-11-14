@@ -36,3 +36,10 @@ func ExampleFilterInSliceWith() {
 	fmt.Printf("%v", output)
 	// Output: [baz bar baz]
 }
+
+func ExampleReverseSlice() {
+	input := []string{"foo", "baz", "bar"}
+	basicalter.ReverseSlice(input)
+	fmt.Printf("%v", input)
+	// Output: [bar baz foo]
+}
