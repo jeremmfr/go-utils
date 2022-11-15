@@ -1,5 +1,11 @@
 # changelog
 
+* add `UniqueInSlice` function with generic parameters in `basicalter` package to replace `UniqueStrings` function which is now deprecated
+* add `DelInSlice` function with generic parameters in `basicalter` package to replace `DelStringInSlice` function which is now deprecated
+* add `FilterInSliceWith` function with generic parameters in `basicalter` package to replace `FilterStringsWith` function which is now deprecated
+* add `ReverseSlice` function with generic parameters in `basicalter` package to replace `ReverseStrings` function which is now deprecated
+* add `ReplaceInSliceWith` function with generic parameters in `basicalter` package to replace `ReplaceStringsWith` function which is now deprecated
+
 ## v0.5.0
 
 * golang 1.18 is now the minimum version
