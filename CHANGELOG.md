@@ -1,5 +1,7 @@
 # changelog
 
+## v0.6.0
+
 * :warning: **BREAKING CHANGES**: remove deprecated functions in basiccheck: `StringInSlice`, `EqualStringSlice`, `IntInSlice`, `Int64InSlice`, `OneOfStringsWith`, `AllStringsWith`
 * add `UniqueInSlice` function with generic parameters in `basicalter` package to replace `UniqueStrings` function which is now deprecated
 * add `DelInSlice` function with generic parameters in `basicalter` package to replace `DelStringInSlice` function which is now deprecated
