@@ -44,22 +44,6 @@ func TestUniqueInSlice(t *testing.T) {
 	}
 }
 
-func TestUniqueStrings(t *testing.T) {
-	sliceOfString := []string{"foo", "bar"}
-
-	if len(basicalter.UniqueStrings(sliceOfString)) != len(sliceOfString) {
-		t.Errorf("UniqueStrings returned bad slice with slice without duplicate entry")
-	}
-
-	sliceOfString = append(sliceOfString, "foo")
-
-	if v := basicalter.UniqueStrings(sliceOfString); len(v) == len(sliceOfString) {
-		t.Errorf("UniqueStrings didn't remove duplicate foo in slice: %v", v)
-	}
-	// test empty list
-	_ = len(basicalter.UniqueStrings([]string{}))
-}
-
 func TestDelEmptyStrings(t *testing.T) {
 	sliceOfString := []string{"foo", "", "bar"}
 
@@ -77,16 +61,6 @@ func TestDelInSlice(t *testing.T) {
 		t.Errorf("DelInSlice didn't remove 'baz': %v", v)
 	} else if !basiccheck.EqualSlice(v, []string{"foo", "bar"}) {
 		t.Errorf("DelInSlice didn't remove 'baz': %v", v)
-	}
-}
-
-func TestDelStringInSlice(t *testing.T) {
-	sliceOfString := []string{"foo", "baz", "bar", "baz"}
-
-	if v := basicalter.DelStringInSlice("baz", sliceOfString); len(v) != 2 {
-		t.Errorf("DelStringInSlice didn't remove 'baz': %v", v)
-	} else if !basiccheck.EqualSlice(v, []string{"foo", "bar"}) {
-		t.Errorf("DelStringInSlice didn't remove 'baz': %v", v)
 	}
 }
 
@@ -109,18 +83,6 @@ func TestFilterInSliceWith(t *testing.T) {
 	}
 }
 
-func TestFilterStringsWith(t *testing.T) {
-	sliceOfString := []string{"foo", "baz", "bar", "baz"}
-
-	if v := basicalter.FilterStringsWith(sliceOfString, func(s string) bool {
-		return strings.HasPrefix(s, "ba")
-	}); len(v) != 3 {
-		t.Errorf("FilterStringsWith didn't remove foo (without prefix 'ba'): %v", v)
-	} else if !basiccheck.EqualSlice(v, []string{"baz", "bar", "baz"}) {
-		t.Errorf("FilterStringsWith didn't remove foo (without prefix 'ba'): %v", v)
-	}
-}
-
 func TestReverseSlice(t *testing.T) {
 	sliceOfString := []string{"foo", "baz", "bar", "World", "Hello"}
 
@@ -138,17 +100,6 @@ func TestReverseSlice(t *testing.T) {
 	desiredInt64Slice := []int64{0, 1, 2, 3}
 	if !basiccheck.EqualSlice(sliceOfInt64, desiredInt64Slice) {
 		t.Errorf("ReverseSlice didn't reverse slice: %v expected %v", sliceOfInt64, desiredInt64Slice)
-	}
-}
-
-func TestReverseStrings(t *testing.T) {
-	sliceOfString := []string{"foo", "baz", "bar", "World", "Hello"}
-
-	basicalter.ReverseStrings(sliceOfString)
-
-	desiredSlice := []string{"Hello", "World", "bar", "baz", "foo"}
-	if !basiccheck.EqualSlice(sliceOfString, desiredSlice) {
-		t.Errorf("ReverseStrings didn't reverse slice: %v expected %v", sliceOfString, desiredSlice)
 	}
 }
 
@@ -186,18 +137,4 @@ func TestReplaceInSliceWith(t *testing.T) {
 
 	// test empty slice
 	basicalter.ReplaceInSliceWith([]string{}, strings.ToLower)
-}
-
-func TestReplaceStringsWith(t *testing.T) {
-	sliceOfString := []string{"Foo", "Bar", "Baz"}
-
-	basicalter.ReplaceStringsWith(sliceOfString, strings.ToLower)
-
-	if !basiccheck.EqualSlice(sliceOfString, []string{"foo", "bar", "baz"}) {
-		t.Errorf("ReplaceStringsWith didn't replace all strings in slice "+
-			"with the lowercase version: %v", sliceOfString)
-	}
-
-	// test empty slice
-	basicalter.ReplaceStringsWith([]string{}, strings.ToLower)
 }

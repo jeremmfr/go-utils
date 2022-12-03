@@ -30,22 +30,6 @@ func UniqueInSlice[T comparable, S ~[]T](list S) S {
 	}
 }
 
-// UniqueStrings remove duplicate string in slice of string.
-//
-// Deprecated: use UniqueInSlice() instead.
-func UniqueStrings(list []string) []string {
-	k := make(map[string]struct{}, len(list))
-	r := []string{}
-	for _, v := range list {
-		if _, ok := k[v]; !ok {
-			k[v] = struct{}{}
-			r = append(r, v)
-		}
-	}
-
-	return r
-}
-
 // DelEmptyStrings remove empty elements in slice of string
 // and return the result with a new slice.
 func DelEmptyStrings(list []string) []string {
@@ -57,15 +41,6 @@ func DelEmptyStrings(list []string) []string {
 func DelInSlice[T comparable, S ~[]T](elem T, list S) S {
 	return FilterInSliceWith(list, func(e T) bool {
 		return e != elem
-	})
-}
-
-// DelStringInSlice remove all occurrence of a string in slice of string.
-//
-// Deprecated: use DelInSlice() instead.
-func DelStringInSlice(str string, list []string) []string {
-	return FilterStringsWith(list, func(s string) bool {
-		return s != str
 	})
 }
 
@@ -86,32 +61,8 @@ func FilterInSliceWith[T any, S ~[]T](list S, filter func(T) bool) S {
 	return r
 }
 
-// FilterStringsWith generate a new slice of string
-// by applying on 'list' a function 'filter' to determine the inclusion of each element.
-//
-// Deprecated: use FilterInSliceWith() instead.
-func FilterStringsWith(list []string, filter func(string) bool) []string {
-	r := make([]string, 0)
-	for _, v := range list {
-		if filter(v) {
-			r = append(r, v)
-		}
-	}
-
-	return r
-}
-
 // ReverseSlice reverse order of a slice last to first, before last to second, etc.
 func ReverseSlice[T any](list []T) {
-	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
-		list[i], list[j] = list[j], list[i]
-	}
-}
-
-// ReverseStrings reverse order of string slice last to first, before last to second, etc.
-//
-// Deprecated: use ReverseSlice() instead.
-func ReverseStrings(list []string) {
 	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
 		list[i], list[j] = list[j], list[i]
 	}
@@ -172,16 +123,6 @@ func (s sortStringsLengthDec) Less(i, j int) bool {
 // ReplaceInSliceWith replace each element of a slice
 // with the result of the function 'replace' passed in arguments.
 func ReplaceInSliceWith[T any](list []T, replace func(T) T) {
-	for i := 0; i < len(list); i++ {
-		list[i] = replace(list[i])
-	}
-}
-
-// ReplaceStringsWith replace each string of a slice
-// with the result of the function 'replace' passed in arguments.
-//
-// Deprecated: use ReplaceInSliceWith() instead.
-func ReplaceStringsWith(list []string, replace func(string) string) {
 	for i := 0; i < len(list); i++ {
 		list[i] = replace(list[i])
 	}
