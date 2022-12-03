@@ -1,5 +1,7 @@
 # changelog
 
+* add `MergeMaps` function in `basicalter` package (copies all key/value pairs in maps to a map)
+
 ## v0.6.0
 
 * :warning: **BREAKING CHANGES**: remove deprecated functions in basiccheck: `StringInSlice`, `EqualStringSlice`, `IntInSlice`, `Int64InSlice`, `OneOfStringsWith`, `AllStringsWith`
