@@ -1,5 +1,7 @@
 # changelog
 
+## v0.7.0
+
 * :warning: **BREAKING CHANGES**: remove deprecated functions in `basicalter`: `UniqueStrings`, `DelStringInSlice`, `FilterStringsWith`, `ReverseStrings`, `ReplaceStringsWith`
 * add new `basicnew` package with this functions:
   * `MapKeys`: MapKeys generate a new slice with all keys of a map.
