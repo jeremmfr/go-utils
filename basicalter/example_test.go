@@ -71,3 +71,11 @@ func ExampleReplaceInSliceWith() {
 	fmt.Printf("%v", input)
 	// Output: [foo bar baz]
 }
+
+func ExampleMergeMaps() {
+	m1 := map[string]string{"foo": "baz"}
+	m2 := map[string]string{"bar": "baz"}
+	basicalter.MergeMaps(m1, false, m2)
+	fmt.Printf("%+v", m1)
+	// Output: map[bar:baz foo:baz]
+}

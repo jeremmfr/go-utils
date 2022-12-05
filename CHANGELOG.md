@@ -4,6 +4,7 @@
 * add new `basicnew` package with this functions:
   * `MapKeys`: MapKeys generate a new slice with all keys of a map.
   * `MapValues`: MapValues generate a new slice with all values of a map.
+* add `MergeMaps` function in `basicalter` package (copies all key/value pairs in maps to a map)
 
 ## v0.6.0
 
