@@ -1,5 +1,7 @@
 # changelog
 
+* add `CutPrefixInString` and `CutSuffixInString` functions in `basicalter` package (check and trim prefix/suffix on the value of a string pointer)
+
 ## v0.7.0
 
 * :warning: **BREAKING CHANGES**: remove deprecated functions in `basicalter`: `UniqueStrings`, `DelStringInSlice`, `FilterStringsWith`, `ReverseStrings`, `ReplaceStringsWith`

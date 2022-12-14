@@ -79,3 +79,17 @@ func ExampleMergeMaps() {
 	fmt.Printf("%+v", m1)
 	// Output: map[bar:baz foo:baz]
 }
+
+func ExampleCutPrefixInString() {
+	str := "foobar"
+	basicalter.CutPrefixInString(&str, "foo")
+	fmt.Println(str)
+	// Output: bar
+}
+
+func ExampleCutSuffixInString() {
+	str := "foobar"
+	basicalter.CutSuffixInString(&str, "bar")
+	fmt.Println(str)
+	// Output: foo
+}
