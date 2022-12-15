@@ -1,5 +1,7 @@
 # changelog
 
+## v0.8.0
+
 * add `CutPrefixInString` and `CutSuffixInString` functions in `basicalter` package (check and trim prefix/suffix on the value of a string pointer)
 
 ## v0.7.0
