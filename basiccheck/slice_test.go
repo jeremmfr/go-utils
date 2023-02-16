@@ -46,6 +46,10 @@ func TestEqualSlice(t *testing.T) {
 func TestOneInSliceWith(t *testing.T) {
 	sliceOfString := []string{}
 
+	if basiccheck.OneInSliceWith(sliceOfString, nil) {
+		t.Errorf("OneInSliceWith return true with nil find")
+	}
+
 	if basiccheck.OneInSliceWith(sliceOfString, func(s string) bool {
 		return strings.HasPrefix(s, "b")
 	}) {
