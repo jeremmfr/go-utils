@@ -3,6 +3,7 @@
 * add `DelRuneInStringWith` and `FilterRuneInStringWith` functions in `basicalter` package (remove specific rune(s) on the value of a string pointer with functions)
 * avoid panic when `find` is nil with function `OneInSliceWith` in `basiccheck` package
 * avoid panic when `valid` is nil with function `AllInSliceWith` in `basiccheck` package
+* avoid panic when `filter` is nil with function `FilterInSliceWith` in `basicalter` package
 
 ## v0.8.0
 
