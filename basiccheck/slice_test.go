@@ -74,6 +74,10 @@ func TestOneInSliceWith(t *testing.T) {
 func TestAllInSliceWith(t *testing.T) {
 	sliceOfString := []string{}
 
+	if !basiccheck.AllInSliceWith(sliceOfString, nil) {
+		t.Errorf("AllInSliceWith return false with nil find")
+	}
+
 	if !basiccheck.AllInSliceWith(sliceOfString, func(s string) bool {
 		return strings.HasPrefix(s, "b")
 	}) {

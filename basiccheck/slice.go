@@ -40,7 +40,12 @@ func OneInSliceWith[T any](list []T, find func(T) bool) bool {
 
 // AllInSliceWith check if all elements in a slice
 // return true with the function 'valid' passed in arguments.
+//
+// If 'valid' is nil, return true.
 func AllInSliceWith[T any](list []T, valid func(T) bool) bool {
+	if valid == nil {
+		return true
+	}
 	for _, v := range list {
 		if !valid(v) {
 			return false
