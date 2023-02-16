@@ -43,3 +43,36 @@ func CutSuffixInString(s *string, suffix string) bool {
 
 	return true
 }
+
+// DelRuneInStringWith rewrites the value of 's' without the rune(s)
+// that return true with one of the 'filtersOut' functions.
+//
+// If 's' is nil, DelRuneInStringWith is a no-op.
+func DelRuneInStringWith(s *string, filtersOut ...func(rune) bool) {
+	if s == nil {
+		return
+	}
+	for _, f := range filtersOut {
+		if f == nil {
+			continue
+		}
+		FilterRuneInStringWith(s, func(r rune) bool { return !f(r) })
+	}
+}
+
+// FilterRuneInStringWith rewrites the value of 's'
+// with the rune(s) that return true with the function 'filter'.
+//
+// If 's' or 'filter' is nil, FilterRuneInStringWith is a no-op.
+func FilterRuneInStringWith(s *string, filter func(rune) bool) {
+	if s == nil || filter == nil {
+		return
+	}
+	*s = strings.Map(func(r rune) rune {
+		if filter(r) {
+			return r
+		}
+
+		return -1
+	}, *s)
+}

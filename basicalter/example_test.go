@@ -3,6 +3,7 @@ package basicalter_test
 import (
 	"fmt"
 	"strings"
+	"unicode"
 
 	"github.com/jeremmfr/go-utils/basicalter"
 )
@@ -92,4 +93,18 @@ func ExampleCutSuffixInString() {
 	basicalter.CutSuffixInString(&str, "bar")
 	fmt.Println(str)
 	// Output: foo
+}
+
+func ExampleDelRuneInStringWith() {
+	str := "foo 1 bar"
+	basicalter.DelRuneInStringWith(&str, unicode.IsSpace, unicode.IsDigit)
+	fmt.Println(str)
+	// Output: foobar
+}
+
+func ExampleFilterRuneInStringWith() {
+	str := "foo 1 bar"
+	basicalter.FilterRuneInStringWith(&str, unicode.IsLetter)
+	fmt.Println(str)
+	// Output: foobar
 }

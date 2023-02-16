@@ -1,5 +1,7 @@
 # changelog
 
+* add `DelRuneInStringWith` and `FilterRuneInStringWith` functions in `basicalter` package (remove specific rune(s) on the value of a string pointer with functions)
+
 ## v0.8.0
 
 * add `CutPrefixInString` and `CutSuffixInString` functions in `basicalter` package (check and trim prefix/suffix on the value of a string pointer)
