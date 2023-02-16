@@ -47,9 +47,16 @@ func DelInSlice[T comparable, S ~[]T](elem T, list S) S {
 // FilterInSliceWith generate a new slice
 // by applying on an input slice 'list' a function 'filter'
 // to determine the inclusion of each element.
+//
+// If 'list' is nil, FilterInSliceWith return nil.
+//
+// If 'filter' is nil, FilterInSliceWith return list.
 func FilterInSliceWith[T any, S ~[]T](list S, filter func(T) bool) S {
 	if list == nil {
 		return nil
+	}
+	if filter == nil {
+		return list
 	}
 	r := make(S, 0, cap(list))
 	for _, v := range list {

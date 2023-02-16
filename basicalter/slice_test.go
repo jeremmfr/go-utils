@@ -67,6 +67,10 @@ func TestDelInSlice(t *testing.T) {
 func TestFilterInSliceWith(t *testing.T) {
 	sliceOfString := []string{"foo", "baz", "bar", "baz"}
 
+	if v := basicalter.FilterInSliceWith(sliceOfString, nil); len(v) != len(sliceOfString) {
+		t.Errorf("FilterInSliceWith didn't return same slice with nil filter: %v", v)
+	}
+
 	if v := basicalter.FilterInSliceWith(sliceOfString, func(s string) bool {
 		return strings.HasPrefix(s, "ba")
 	}); len(v) != 3 {

@@ -23,7 +23,12 @@ func EqualSlice[T comparable](a, b []T) bool {
 
 // OneInSliceWith check if at least one element in a slice
 // returns true with the function 'find' passed in arguments.
+//
+// If 'find' is nil, return false.
 func OneInSliceWith[T any](list []T, find func(T) bool) bool {
+	if find == nil {
+		return false
+	}
 	for _, v := range list {
 		if find(v) {
 			return true
@@ -35,7 +40,12 @@ func OneInSliceWith[T any](list []T, find func(T) bool) bool {
 
 // AllInSliceWith check if all elements in a slice
 // return true with the function 'valid' passed in arguments.
+//
+// If 'valid' is nil, return true.
 func AllInSliceWith[T any](list []T, valid func(T) bool) bool {
+	if valid == nil {
+		return true
+	}
 	for _, v := range list {
 		if !valid(v) {
 			return false
