@@ -17,6 +17,7 @@ linters:
     - varnamelen
     - dupl
     - ireturn
+    - depguard
 linters-settings:
   govet:
     enable-all: true
