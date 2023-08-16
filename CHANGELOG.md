@@ -1,5 +1,7 @@
 # changelog
 
+* add `StringHasOneOfSuffixes` function in `basiccheck` package
+
 ## v0.9.0
 
 * add `DelRuneInStringWith` and `FilterRuneInStringWith` functions in `basicalter` package (remove specific rune(s) on the value of a string pointer with functions)
