@@ -1,5 +1,7 @@
 # changelog
 
+## v0.10.0
+
 * add `StringHasOneOfSuffixes` function in `basiccheck` package
 
 ## v0.9.0
