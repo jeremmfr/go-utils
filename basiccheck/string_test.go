@@ -16,3 +16,14 @@ func TestStringHasOneOfPrefixes(t *testing.T) {
 		t.Errorf("StringHasOneOfPrefixes found one of prefixes %v in fozbar", prefStrings)
 	}
 }
+
+func TestStringHasOneOfSuffixes(t *testing.T) {
+	suffStrings := []string{"foo", "bar"}
+
+	if !basiccheck.StringHasOneOfSuffixes("barfoo", suffStrings) {
+		t.Errorf("StringHasOneOfSuffixes didn't find suffix foo in barfoo")
+	}
+	if basiccheck.StringHasOneOfSuffixes("barfoz", suffStrings) {
+		t.Errorf("StringHasOneOfPrefixes found one of suffixes %v in barfoz", suffStrings)
+	}
+}
