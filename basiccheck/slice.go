@@ -21,6 +21,21 @@ func EqualSlice[T comparable](a, b []T) bool {
 	return true
 }
 
+// SimilarSlice check if two slice is Similar:
+// same length, same element (not necessarily in same order).
+func SimilarSlice[T comparable](a, b []T) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for _, v := range a {
+		if !InSlice(v, b) {
+			return false
+		}
+	}
+
+	return true
+}
+
 // OneInSliceWith check if at least one element in a slice
 // returns true with the function 'find' passed in arguments.
 //
