@@ -1,5 +1,7 @@
 # changelog
 
+## v0.11.0
+
 * add `SimilarSlice` function in `basiccheck` package
 
 ## v0.10.0
