@@ -43,6 +43,38 @@ func TestEqualSlice(t *testing.T) {
 	}
 }
 
+func TestSimilarSlice(t *testing.T) {
+	sliceA := []string{"foo", "bar", "baz"}
+	sliceB := []string{"foo", "baz", "bar"}
+	sliceC := []string{"foo", "bar"}
+
+	if !basiccheck.SimilarSlice(sliceA, sliceB) {
+		t.Errorf("SimilarSlice didn't find similar slice %v, %v", sliceA, sliceB)
+	}
+	if basiccheck.SimilarSlice(sliceA, sliceC) {
+		t.Errorf("SimilarSlice found similar slice %v, %v", sliceA, sliceC)
+	}
+
+	sliceC = append(sliceC, "baz")
+	if !basiccheck.SimilarSlice(sliceA, sliceC) {
+		t.Errorf("SimilarSlice didn't find similar slice %v, %v", sliceA, sliceC)
+	}
+
+	sliceC[0] = "fo"
+	if basiccheck.SimilarSlice(sliceA, sliceC) {
+		t.Errorf("SimilarSlice found similar slice %v, %v", sliceA, sliceC)
+	}
+
+	sliceC = nil
+	if basiccheck.SimilarSlice(sliceA, sliceC) {
+		t.Errorf("SimilarSlice found similar slice %v, %v", sliceA, sliceC)
+	}
+	sliceA = nil
+	if !basiccheck.SimilarSlice(sliceA, sliceC) {
+		t.Errorf("SimilarSlice didn't find similar slice %v, %v", sliceA, sliceC)
+	}
+}
+
 func TestOneInSliceWith(t *testing.T) {
 	sliceOfString := []string{}
 
