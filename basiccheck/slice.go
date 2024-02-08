@@ -8,6 +8,8 @@ func InSlice[T comparable](elem T, list []T) bool {
 }
 
 // EqualSlice check if two slice is Equal: same length, same element in same order.
+//
+// Deprecated: use slices.Equal() from the standard 'slices' library instead.
 func EqualSlice[T comparable](a, b []T) bool {
 	if len(a) != len(b) {
 		return false
