@@ -8,12 +8,13 @@ import (
 )
 
 func Example() {
-	input := []string{"foo", "bar"}
-	if basiccheck.InSlice("bar", input) {
-		fmt.Printf("bar found in %v", input)
-		// Output: bar found in [foo bar]
+	input1 := []string{"foo", "bar"}
+	input2 := []string{"bar", "foo"}
+	if basiccheck.SimilarSlice(input1, input2) {
+		fmt.Printf("%v =~ %v", input1, input2)
+		// Output: [foo bar] =~ [bar foo]
 	} else {
-		fmt.Printf("bar not found in %v", input)
+		fmt.Printf("%v != %v", input1, input2)
 	}
 }
 
