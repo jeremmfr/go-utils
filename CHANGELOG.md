@@ -5,6 +5,8 @@
   use [slices.Reverse()](https://pkg.go.dev/slices#Reverse) from the standard [slices](https://pkg.go.dev/slices) library instead
 * :warning: `EqualSlice` function in `basiccheck` package is now deprecated  
   use [slices.Equal()](https://pkg.go.dev/slices#Equal) from the standard [slices](https://pkg.go.dev/slices) library instead
+* :warning: `InSlice` function in `basiccheck` package is now deprecated  
+  use [slices.Contains()](https://pkg.go.dev/slices#Contains) from the standard [slices](https://pkg.go.dev/slices) library instead
 
 ## v0.11.0
 

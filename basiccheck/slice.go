@@ -1,6 +1,10 @@
 package basiccheck
 
+import "slices"
+
 // InSlice check if an element is present in a slice.
+//
+// Deprecated: use slices.Contains() from the standard 'slices' library instead.
 func InSlice[T comparable](elem T, list []T) bool {
 	return OneInSliceWith(list, func(v T) bool {
 		return v == elem
@@ -30,7 +34,7 @@ func SimilarSlice[T comparable](a, b []T) bool {
 		return false
 	}
 	for _, v := range a {
-		if !InSlice(v, b) {
+		if !slices.Contains(b, v) {
 			return false
 		}
 	}
