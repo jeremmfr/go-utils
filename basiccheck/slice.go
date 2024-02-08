@@ -46,6 +46,8 @@ func SimilarSlice[T comparable](a, b []T) bool {
 // returns true with the function 'find' passed in arguments.
 //
 // If 'find' is nil, return false.
+//
+// Deprecated: use slices.ContainsFunc() from the standard 'slices' library instead.
 func OneInSliceWith[T any](list []T, find func(T) bool) bool {
 	if find == nil {
 		return false
