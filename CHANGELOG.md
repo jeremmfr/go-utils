@@ -1,5 +1,7 @@
 # changelog
 
+* golang 1.21 is now the minimum version
+
 ## v0.11.0
 
 * add `SimilarSlice` function in `basiccheck` package

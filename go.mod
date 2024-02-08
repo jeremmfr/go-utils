@@ -1,3 +1,3 @@
 module github.com/jeremmfr/go-utils
 
-go 1.18
+go 1.21

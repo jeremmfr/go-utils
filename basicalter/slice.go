@@ -1,6 +1,8 @@
 package basicalter
 
-import "sort"
+import (
+	"sort"
+)
 
 // UniqueInSlice remove duplicate elements in slice
 // and return the result with a new slice.
