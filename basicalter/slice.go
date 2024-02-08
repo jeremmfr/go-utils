@@ -71,6 +71,8 @@ func FilterInSliceWith[T any, S ~[]T](list S, filter func(T) bool) S {
 }
 
 // ReverseSlice reverse order of a slice last to first, before last to second, etc.
+//
+// Deprecated: use slices.Reverse() from the standard 'slices' library instead.
 func ReverseSlice[T any](list []T) {
 	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
 		list[i], list[j] = list[j], list[i]
