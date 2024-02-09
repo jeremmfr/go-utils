@@ -80,7 +80,7 @@ func TestFilterInSliceWith(t *testing.T) {
 	}
 
 	var nilSlice []string
-	if v := basicalter.FilterInSliceWith(nilSlice, func(s string) bool {
+	if v := basicalter.FilterInSliceWith(nilSlice, func(_ string) bool {
 		return true
 	}); v != nil {
 		t.Errorf("FilterInSliceWith didn't return nil slice with nil input slice")
