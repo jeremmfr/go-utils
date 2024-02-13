@@ -1,5 +1,7 @@
 # changelog
 
+## v0.12.0
+
 * golang 1.21 is now the minimum version
 * :warning: `ReverseSlice` function in `basicalter` package is now deprecated  
   use [slices.Reverse()](https://pkg.go.dev/slices#Reverse) from the standard [slices](https://pkg.go.dev/slices) library instead
