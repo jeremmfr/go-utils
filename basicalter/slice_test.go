@@ -1,11 +1,11 @@
 package basicalter_test
 
 import (
+	"slices"
 	"strings"
 	"testing"
 
 	"github.com/jeremmfr/go-utils/basicalter"
-	"github.com/jeremmfr/go-utils/basiccheck"
 )
 
 func TestUniqueInSlice(t *testing.T) {
@@ -49,7 +49,7 @@ func TestDelEmptyStrings(t *testing.T) {
 
 	if v := basicalter.DelEmptyStrings(sliceOfString); len(v) != 2 {
 		t.Errorf("DelEmptyStrings didn't remove empty string: %v", v)
-	} else if !basiccheck.EqualSlice(v, []string{"foo", "bar"}) {
+	} else if !slices.Equal(v, []string{"foo", "bar"}) {
 		t.Errorf("DelEmptyStrings didn't remove empty string: %v", v)
 	}
 }
@@ -59,7 +59,7 @@ func TestDelInSlice(t *testing.T) {
 
 	if v := basicalter.DelInSlice("baz", sliceOfString); len(v) != 2 {
 		t.Errorf("DelInSlice didn't remove 'baz': %v", v)
-	} else if !basiccheck.EqualSlice(v, []string{"foo", "bar"}) {
+	} else if !slices.Equal(v, []string{"foo", "bar"}) {
 		t.Errorf("DelInSlice didn't remove 'baz': %v", v)
 	}
 }
@@ -75,12 +75,12 @@ func TestFilterInSliceWith(t *testing.T) {
 		return strings.HasPrefix(s, "ba")
 	}); len(v) != 3 {
 		t.Errorf("FilterInSliceWith didn't remove foo (without prefix 'ba'): %v", v)
-	} else if !basiccheck.EqualSlice(v, []string{"baz", "bar", "baz"}) {
+	} else if !slices.Equal(v, []string{"baz", "bar", "baz"}) {
 		t.Errorf("FilterInSliceWith didn't remove foo (without prefix 'ba'): %v", v)
 	}
 
 	var nilSlice []string
-	if v := basicalter.FilterInSliceWith(nilSlice, func(s string) bool {
+	if v := basicalter.FilterInSliceWith(nilSlice, func(_ string) bool {
 		return true
 	}); v != nil {
 		t.Errorf("FilterInSliceWith didn't return nil slice with nil input slice")
@@ -93,7 +93,7 @@ func TestReverseSlice(t *testing.T) {
 	basicalter.ReverseSlice(sliceOfString)
 
 	desiredStringSlice := []string{"Hello", "World", "bar", "baz", "foo"}
-	if !basiccheck.EqualSlice(sliceOfString, desiredStringSlice) {
+	if !slices.Equal(sliceOfString, desiredStringSlice) {
 		t.Errorf("ReverseSlice didn't reverse slice: %v expected %v", sliceOfString, desiredStringSlice)
 	}
 
@@ -102,7 +102,7 @@ func TestReverseSlice(t *testing.T) {
 	basicalter.ReverseSlice(sliceOfInt64)
 
 	desiredInt64Slice := []int64{0, 1, 2, 3}
-	if !basiccheck.EqualSlice(sliceOfInt64, desiredInt64Slice) {
+	if !slices.Equal(sliceOfInt64, desiredInt64Slice) {
 		t.Errorf("ReverseSlice didn't reverse slice: %v expected %v", sliceOfInt64, desiredInt64Slice)
 	}
 }
@@ -113,7 +113,7 @@ func TestSortStringsByLengthInc(t *testing.T) {
 	basicalter.SortStringsByLengthInc(s)
 
 	desiredSlice := []string{"Go", "Grin", "Alpha", "Bravo", "Delta", "Gopher"}
-	if !basiccheck.EqualSlice(s, desiredSlice) {
+	if !slices.Equal(s, desiredSlice) {
 		t.Errorf("SortStringsByLength didn't sort slice with smaller first and lexicographic order")
 	}
 }
@@ -124,7 +124,7 @@ func TestSortStringsByLengthDec(t *testing.T) {
 	basicalter.SortStringsByLengthDec(s)
 
 	desiredSlice := []string{"Gopher", "Alpha", "Bravo", "Delta", "Grin", "Go"}
-	if !basiccheck.EqualSlice(s, desiredSlice) {
+	if !slices.Equal(s, desiredSlice) {
 		t.Errorf("SortStringsByLength didn't sort slice with smaller last and lexicographic order")
 	}
 }
@@ -134,7 +134,7 @@ func TestReplaceInSliceWith(t *testing.T) {
 
 	basicalter.ReplaceInSliceWith(sliceOfString, strings.ToLower)
 
-	if !basiccheck.EqualSlice(sliceOfString, []string{"foo", "bar", "baz"}) {
+	if !slices.Equal(sliceOfString, []string{"foo", "bar", "baz"}) {
 		t.Errorf("ReplaceInSliceWith didn't replace all strings in slice "+
 			"with the lowercase version: %v", sliceOfString)
 	}

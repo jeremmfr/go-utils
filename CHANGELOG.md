@@ -1,5 +1,15 @@
 # changelog
 
+* golang 1.21 is now the minimum version
+* :warning: `ReverseSlice` function in `basicalter` package is now deprecated  
+  use [slices.Reverse()](https://pkg.go.dev/slices#Reverse) from the standard [slices](https://pkg.go.dev/slices) library instead
+* :warning: `EqualSlice` function in `basiccheck` package is now deprecated  
+  use [slices.Equal()](https://pkg.go.dev/slices#Equal) from the standard [slices](https://pkg.go.dev/slices) library instead
+* :warning: `InSlice` function in `basiccheck` package is now deprecated  
+  use [slices.Contains()](https://pkg.go.dev/slices#Contains) from the standard [slices](https://pkg.go.dev/slices) library instead
+* :warning: `OneInSliceWith` function in `basiccheck` package is now deprecated  
+  use [slices.ContainsFunc()](https://pkg.go.dev/slices#ContainsFunc) from the standard [slices](https://pkg.go.dev/slices) library instead
+
 ## v0.11.0
 
 * add `SimilarSlice` function in `basiccheck` package

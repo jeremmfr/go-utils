@@ -21,13 +21,14 @@ import (
 )
 
 func main() {
-     sliceOfString := []string{"foo", "bar"}
+     s1 := []string{"foo", "bar"}
+     s2 := []string{"bar", "foo"}
 
-     if basiccheck.InSlice("bar", sliceOfString) {
-          fmt.Printf("bar found in %v", sliceOfString)
-          // Output: bar found in [foo bar]
+     if basiccheck.SimilarSlice(s1, s2) {
+          fmt.Printf("%v =~ %v", s1, s2)
+          // Output: [foo bar] =~ [bar foo]
      } else {
-          fmt.Printf("bar not found in %v", sliceOfString)
+          fmt.Printf("%v != %v", s1, s2)
      }
 }
 ```
