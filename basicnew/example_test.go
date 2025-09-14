@@ -41,3 +41,13 @@ func ExampleMapValues() {
 	fmt.Println(values)
 	// Output: [baz baz]
 }
+
+func ExampleSliceIntersect() {
+	result := basicnew.SliceIntersect(
+		[]string{"foo", "bar"},
+		[]string{"baz", "foobar", "bar", "bar"},
+	)
+
+	fmt.Println(result)
+	// Output: [bar]
+}

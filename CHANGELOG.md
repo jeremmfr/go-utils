@@ -1,5 +1,8 @@
 # changelog
 
+* add `SliceIntersect` function in `basicnew` package
+* fix unexpected result for `SimilarSlice` in `basiccheck` when there are elements of arguments present multiple times, but not in the same way in each argument
+
 ## v0.12.0
 
 * golang 1.21 is now the minimum version

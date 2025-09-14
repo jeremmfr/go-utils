@@ -1,6 +1,8 @@
 package basiccheck
 
-import "slices"
+import (
+	"maps"
+)
 
 // InSlice check if an element is present in a slice.
 //
@@ -29,17 +31,26 @@ func EqualSlice[T comparable](a, b []T) bool {
 
 // SimilarSlice check if two slice is Similar:
 // same length, same element (not necessarily in same order).
+//
+// Elements that appear multiple times must appear same times between the two slices.
 func SimilarSlice[T comparable](a, b []T) bool {
 	if len(a) != len(b) {
 		return false
 	}
+	aElems := make(map[T]int, len(a))
 	for _, v := range a {
-		if !slices.Contains(b, v) {
-			return false
-		}
+		aElems[v]++
 	}
 
-	return true
+	bElems := make(map[T]int, len(a))
+	for _, v := range b {
+		if _, ok := aElems[v]; !ok {
+			return false
+		}
+		bElems[v]++
+	}
+
+	return maps.Equal(aElems, bElems)
 }
 
 // OneInSliceWith check if at least one element in a slice

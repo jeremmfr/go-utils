@@ -44,34 +44,65 @@ func TestEqualSlice(t *testing.T) {
 }
 
 func TestSimilarSlice(t *testing.T) {
-	sliceA := []string{"foo", "bar", "baz"}
-	sliceB := []string{"foo", "baz", "bar"}
-	sliceC := []string{"foo", "bar"}
+	t.Parallel()
 
-	if !basiccheck.SimilarSlice(sliceA, sliceB) {
-		t.Errorf("SimilarSlice didn't find similar slice %v, %v", sliceA, sliceB)
-	}
-	if basiccheck.SimilarSlice(sliceA, sliceC) {
-		t.Errorf("SimilarSlice found similar slice %v, %v", sliceA, sliceC)
+	type testCase struct {
+		a            []string
+		b            []string
+		expectResult bool
 	}
 
-	sliceC = append(sliceC, "baz")
-	if !basiccheck.SimilarSlice(sliceA, sliceC) {
-		t.Errorf("SimilarSlice didn't find similar slice %v, %v", sliceA, sliceC)
+	tests := map[string]testCase{
+		"nil|nil": {
+			a:            nil,
+			b:            nil,
+			expectResult: true,
+		},
+		"foo_bar_baz": {
+			a:            []string{"foo", "bar", "baz"},
+			b:            []string{"foo", "baz", "bar"},
+			expectResult: true,
+		},
+		"foo_bar+baz": {
+			a:            []string{"foo", "bar", "baz"},
+			b:            []string{"foo", "bar"},
+			expectResult: false,
+		},
+		"foo_bar_baz_2": {
+			a:            []string{"foo", "bar", "baz"},
+			b:            []string{"foo", "bar", "baz"},
+			expectResult: true,
+		},
+		"bar_baz+fo": {
+			a:            []string{"foo", "bar", "baz"},
+			b:            []string{"fo", "bar", "baz"},
+			expectResult: false,
+		},
+		"foo_bar_baz|nil": {
+			a:            []string{"foo", "bar", "baz"},
+			b:            nil,
+			expectResult: false,
+		},
+		"foo*2_bar_baz": {
+			a:            []string{"foo", "bar", "baz", "foo"},
+			b:            []string{"foo", "bar", "baz", "foo"},
+			expectResult: true,
+		},
+		"foo*2_bar*2_baz*2": {
+			a:            []string{"foo", "bar", "baz", "foo", "bar"},
+			b:            []string{"foo", "bar", "baz", "foo", "baz"},
+			expectResult: false,
+		},
 	}
 
-	sliceC[0] = "fo"
-	if basiccheck.SimilarSlice(sliceA, sliceC) {
-		t.Errorf("SimilarSlice found similar slice %v, %v", sliceA, sliceC)
-	}
+	for name, test := range tests {
+		t.Run(name, func(t *testing.T) {
+			t.Parallel()
 
-	sliceC = nil
-	if basiccheck.SimilarSlice(sliceA, sliceC) {
-		t.Errorf("SimilarSlice found similar slice %v, %v", sliceA, sliceC)
-	}
-	sliceA = nil
-	if !basiccheck.SimilarSlice(sliceA, sliceC) {
-		t.Errorf("SimilarSlice didn't find similar slice %v, %v", sliceA, sliceC)
+			if b := basiccheck.SimilarSlice(test.a, test.b); b != test.expectResult {
+				t.Errorf("got unexpected result: want %v, got %v", test.expectResult, b)
+			}
+		})
 	}
 }
 
