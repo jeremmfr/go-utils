@@ -1,5 +1,7 @@
 # changelog
 
+* add `SliceIntersect` function in `basicnew` package
+
 ## v0.12.0
 
 * golang 1.21 is now the minimum version
