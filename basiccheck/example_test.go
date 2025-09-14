@@ -18,16 +18,6 @@ func Example() {
 	}
 }
 
-func ExampleInSlice() {
-	input := []string{"foo", "bar"}
-	if basiccheck.InSlice("bar", input) {
-		fmt.Printf("bar found in %v", input)
-		// Output: bar found in [foo bar]
-	} else {
-		fmt.Printf("bar not found in %v", input)
-	}
-}
-
 func ExampleSimilarSlice() {
 	a := []string{"foo", "bar", "baz"}
 	b := []string{"baz", "foo", "bar"}

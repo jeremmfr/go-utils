@@ -2,15 +2,6 @@ package basiccheck
 
 import "slices"
 
-// InSlice check if an element is present in a slice.
-//
-// Deprecated: use slices.Contains() from the standard 'slices' library instead.
-func InSlice[T comparable](elem T, list []T) bool {
-	return OneInSliceWith(list, func(v T) bool {
-		return v == elem
-	})
-}
-
 // SimilarSlice check if two slice is Similar:
 // same length, same element (not necessarily in same order).
 func SimilarSlice[T comparable](a, b []T) bool {
