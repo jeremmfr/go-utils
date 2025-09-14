@@ -1,5 +1,7 @@
 # changelog
 
+* :warning: remove deprecated `ReverseSlice` function in `basicalter`
+
 ## v0.12.0
 
 * golang 1.21 is now the minimum version
