@@ -11,22 +11,6 @@ func InSlice[T comparable](elem T, list []T) bool {
 	})
 }
 
-// EqualSlice check if two slice is Equal: same length, same element in same order.
-//
-// Deprecated: use slices.Equal() from the standard 'slices' library instead.
-func EqualSlice[T comparable](a, b []T) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i, v := range a {
-		if v != b[i] {
-			return false
-		}
-	}
-
-	return true
-}
-
 // SimilarSlice check if two slice is Similar:
 // same length, same element (not necessarily in same order).
 func SimilarSlice[T comparable](a, b []T) bool {

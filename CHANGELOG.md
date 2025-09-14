@@ -1,6 +1,7 @@
 # changelog
 
 * :warning: remove deprecated `ReverseSlice` function in `basicalter`
+* :warning: remove deprecated `EqualSlice` function in `basiccheck`
 
 ## v0.12.0
 

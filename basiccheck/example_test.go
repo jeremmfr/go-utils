@@ -28,17 +28,6 @@ func ExampleInSlice() {
 	}
 }
 
-func ExampleEqualSlice() {
-	a := []string{"foo", "bar", "baz"}
-	b := []string{"foo", "bar", "baz"}
-	if basiccheck.EqualSlice(a, b) {
-		fmt.Print("a == b")
-		// Output: a == b
-	} else {
-		fmt.Print("a != b")
-	}
-}
-
 func ExampleSimilarSlice() {
 	a := []string{"foo", "bar", "baz"}
 	b := []string{"baz", "foo", "bar"}
