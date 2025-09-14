@@ -29,18 +29,6 @@ func ExampleSimilarSlice() {
 	}
 }
 
-func ExampleOneInSliceWith() {
-	input := []string{"foo", "bar", "baz"}
-	if basiccheck.OneInSliceWith(input, func(s string) bool {
-		return strings.HasPrefix(s, "b")
-	}) {
-		fmt.Printf("one of %v has prefix 'b'", input)
-		// Output: one of [foo bar baz] has prefix 'b'
-	} else {
-		fmt.Printf("no one of %v has prefix 'b'", input)
-	}
-}
-
 func ExampleAllInSliceWith() {
 	input := []string{"boo", "bar", "baz"}
 	if basiccheck.AllInSliceWith(input, func(s string) bool {

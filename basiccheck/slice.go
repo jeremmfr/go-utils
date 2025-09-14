@@ -17,25 +17,6 @@ func SimilarSlice[T comparable](a, b []T) bool {
 	return true
 }
 
-// OneInSliceWith check if at least one element in a slice
-// returns true with the function 'find' passed in arguments.
-//
-// If 'find' is nil, return false.
-//
-// Deprecated: use slices.ContainsFunc() from the standard 'slices' library instead.
-func OneInSliceWith[T any](list []T, find func(T) bool) bool {
-	if find == nil {
-		return false
-	}
-	for _, v := range list {
-		if find(v) {
-			return true
-		}
-	}
-
-	return false
-}
-
 // AllInSliceWith check if all elements in a slice
 // return true with the function 'valid' passed in arguments.
 //
