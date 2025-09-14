@@ -1,11 +1,11 @@
 # changelog
 
+* add `SliceIntersect` function in `basicnew` package
+* fix unexpected result for `SimilarSlice` in `basiccheck` when there are elements of arguments present multiple times, but not in the same way in each argument
 * :warning: remove deprecated `ReverseSlice` function in `basicalter`
 * :warning: remove deprecated `EqualSlice` function in `basiccheck`
 * :warning: remove deprecated `InSlice` function in `basiccheck`
 * :warning: remove deprecated `OneInSliceWith` function in `basiccheck`
-* add `SliceIntersect` function in `basicnew` package
-* fix unexpected result for `SimilarSlice` in `basiccheck` when there are elements of arguments present multiple times, but not in the same way in each argument
 
 ## v0.12.0
 
