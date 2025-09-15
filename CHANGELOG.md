@@ -1,5 +1,8 @@
 # changelog
 
+## v0.13.0
+
+* Go 1.22 is now the minimum version
 * add `SliceIntersect` function in `basicnew` package
 * fix unexpected result for `SimilarSlice` in `basiccheck` when there are elements of arguments present multiple times, but not in the same way in each argument
 * :warning: remove deprecated `ReverseSlice` function in `basicalter`
