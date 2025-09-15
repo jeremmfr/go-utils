@@ -45,13 +45,6 @@ func ExampleFilterInSliceWith() {
 	// Output: [baz bar baz]
 }
 
-func ExampleReverseSlice() {
-	input := []string{"foo", "baz", "bar"}
-	basicalter.ReverseSlice(input)
-	fmt.Printf("%v", input)
-	// Output: [bar baz foo]
-}
-
 func ExampleSortStringsByLengthInc() {
 	input := []string{"a1", "a10", "a11", "a100", "a2", "a3"}
 	basicalter.SortStringsByLengthInc(input)

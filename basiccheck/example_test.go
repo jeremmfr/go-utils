@@ -18,27 +18,6 @@ func Example() {
 	}
 }
 
-func ExampleInSlice() {
-	input := []string{"foo", "bar"}
-	if basiccheck.InSlice("bar", input) {
-		fmt.Printf("bar found in %v", input)
-		// Output: bar found in [foo bar]
-	} else {
-		fmt.Printf("bar not found in %v", input)
-	}
-}
-
-func ExampleEqualSlice() {
-	a := []string{"foo", "bar", "baz"}
-	b := []string{"foo", "bar", "baz"}
-	if basiccheck.EqualSlice(a, b) {
-		fmt.Print("a == b")
-		// Output: a == b
-	} else {
-		fmt.Print("a != b")
-	}
-}
-
 func ExampleSimilarSlice() {
 	a := []string{"foo", "bar", "baz"}
 	b := []string{"baz", "foo", "bar"}
@@ -47,18 +26,6 @@ func ExampleSimilarSlice() {
 		// Output: a == b
 	} else {
 		fmt.Print("a != b")
-	}
-}
-
-func ExampleOneInSliceWith() {
-	input := []string{"foo", "bar", "baz"}
-	if basiccheck.OneInSliceWith(input, func(s string) bool {
-		return strings.HasPrefix(s, "b")
-	}) {
-		fmt.Printf("one of %v has prefix 'b'", input)
-		// Output: one of [foo bar baz] has prefix 'b'
-	} else {
-		fmt.Printf("no one of %v has prefix 'b'", input)
 	}
 }
 

@@ -87,26 +87,6 @@ func TestFilterInSliceWith(t *testing.T) {
 	}
 }
 
-func TestReverseSlice(t *testing.T) {
-	sliceOfString := []string{"foo", "baz", "bar", "World", "Hello"}
-
-	basicalter.ReverseSlice(sliceOfString)
-
-	desiredStringSlice := []string{"Hello", "World", "bar", "baz", "foo"}
-	if !slices.Equal(sliceOfString, desiredStringSlice) {
-		t.Errorf("ReverseSlice didn't reverse slice: %v expected %v", sliceOfString, desiredStringSlice)
-	}
-
-	sliceOfInt64 := []int64{3, 2, 1, 0}
-
-	basicalter.ReverseSlice(sliceOfInt64)
-
-	desiredInt64Slice := []int64{0, 1, 2, 3}
-	if !slices.Equal(sliceOfInt64, desiredInt64Slice) {
-		t.Errorf("ReverseSlice didn't reverse slice: %v expected %v", sliceOfInt64, desiredInt64Slice)
-	}
-}
-
 func TestSortStringsByLengthInc(t *testing.T) {
 	s := []string{"Bravo", "Gopher", "Alpha", "Go", "Grin", "Delta"}
 
