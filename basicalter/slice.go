@@ -125,7 +125,7 @@ func (s sortStringsLengthDec) Less(i, j int) bool {
 // ReplaceInSliceWith replace each element of a slice
 // with the result of the function 'replace' passed in arguments.
 func ReplaceInSliceWith[T any](list []T, replace func(T) T) {
-	for i := 0; i < len(list); i++ {
+	for i := range list {
 		list[i] = replace(list[i])
 	}
 }
