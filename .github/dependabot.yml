@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     commit-message:
-      prefix: "workflows:"
+      prefix: "👷 workflows:"
     schedule:
       interval: daily
     assignees:
