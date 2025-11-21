@@ -19,7 +19,7 @@ jobs:
           go-version: ${{ matrix.golang }}
         id: go
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Test
         run: go test -v ./...
 
@@ -33,7 +33,7 @@ jobs:
           go-version: '1.25'
         id: go
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Test
         run: go test -v ./... -coverprofile=coverage.out -covermode=atomic 
 
