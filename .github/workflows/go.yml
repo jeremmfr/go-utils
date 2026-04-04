@@ -11,6 +11,7 @@ jobs:
           - '1.22'
           - '1.23'
           - '1.24'
+          - '1.25'
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go ${{ matrix.golang }}
@@ -24,13 +25,13 @@ jobs:
         run: go test -v ./...
 
   test-latest:
-    name: Test 1.25
+    name: Test 1.26
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Go 1.25
+      - name: Set up Go 1.26
         uses: actions/setup-go@v6
         with:
-          go-version: '1.25'
+          go-version: '1.26'
         id: go
       - name: Check out code
         uses: actions/checkout@v6
